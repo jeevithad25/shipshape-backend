@@ -1,0 +1,202 @@
+/* ==========================================================================
+   ShipShape — Design tokens
+   A ship's chart room at night: deep navy chart-table blue, brass instrument
+   accents, hairline rules like plotted courses. Fraunces carries the ledger
+   voice in headings; Inter is the working type; JetBrains Mono renders IMO
+   numbers, port codes and tonnage like instrument read-outs.
+
+   Bootstrap now supplies the component mechanics (buttons, forms, tables,
+   modals, navbar, badges, pagination, alerts, toasts) — this file supplies
+   the chart-room identity on top, mostly by re-pointing Bootstrap's own CSS
+   variables at our palette so every Bootstrap component inherits it for free.
+   ========================================================================== */
+:root {
+  --navy-950: #081321;
+  --navy-900: #0b1b2b;
+  --navy-800: #102338;
+  --navy-700: #152c44;
+  --navy-600: #1c3a58;
+  --line: rgba(147, 165, 184, 0.16);
+  --line-strong: rgba(147, 165, 184, 0.28);
+
+  --ink: #e8edf2;
+  --ink-muted: #93a5b8;
+  --ink-faint: #647385;
+
+  --brass: #c99a4b;
+  --brass-strong: #e0b565;
+  --steel: #5f8fae;
+
+  --positive: #7fae86;
+  --warning: #e0a855;
+  --negative: #e2645c;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 10px 30px rgba(3, 9, 17, 0.35);
+  --shadow-modal: 0 24px 60px rgba(3, 9, 17, 0.55);
+
+  /* ---- Bootstrap variable overrides (Bootstrap 5.3 CSS-var theming) ---- */
+  --bs-body-bg: var(--navy-900);
+  --bs-body-color: var(--ink);
+  --bs-body-font-family: var(--font-body);
+  --bs-border-color: var(--line-strong);
+  --bs-link-color: var(--brass-strong);
+  --bs-link-hover-color: var(--brass);
+  --bs-emphasis-color: var(--ink);
+  --bs-secondary-color: var(--ink-muted);
+
+  --bs-primary: var(--brass);
+  --bs-primary-rgb: 201, 154, 75;
+  --bs-success: var(--positive);
+  --bs-success-rgb: 127, 174, 134;
+  --bs-warning: var(--warning);
+  --bs-warning-rgb: 224, 168, 85;
+  --bs-danger: var(--negative);
+  --bs-danger-rgb: 226, 100, 92;
+  --bs-info: var(--steel);
+  --bs-info-rgb: 95, 143, 174;
+  --bs-secondary: #4a5b70;
+  --bs-secondary-rgb: 74, 91, 112;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(1200px 600px at 15% -10%, rgba(95, 143, 174, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(201, 154, 75, 0.08), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(147,165,184,0.035) 0px, rgba(147,165,184,0.035) 1px, transparent 1px, transparent 32px),
+    repeating-linear-gradient(90deg, rgba(147,165,184,0.035) 0px, rgba(147,165,184,0.035) 1px, transparent 1px, transparent 32px);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, .card-title, .modal-title { font-family: var(--font-display); font-weight: 600; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--brass-strong); outline-offset: 2px; }
+.font-monospace { letter-spacing: 0.02em; }
+
+/* Buttons — brass primary reads dark-on-brass rather than Bootstrap's default light-on-color */
+.btn-primary { color: var(--navy-950); font-weight: 600; }
+.btn-primary:hover, .btn-primary:focus { color: var(--navy-950); }
+.btn { font-weight: 600; }
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+.navbar {
+  background: linear-gradient(180deg, rgba(16, 35, 56, 0.92), rgba(16, 35, 56, 0.7));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.navbar-brand { color: var(--ink) !important; font-family: var(--font-display); font-size: 20px; letter-spacing: 0.02em; }
+.navbar-brand:hover { color: var(--brass-strong) !important; }
+.nav-brand-mark { color: var(--brass); font-size: 22px; }
+.navbar .nav-link { color: var(--ink-muted); font-weight: 500; border-radius: var(--radius-sm); }
+.navbar .nav-link:hover { color: var(--ink); background: rgba(147, 165, 184, 0.08); }
+.navbar .nav-link.active { color: var(--navy-950); background: var(--brass); }
+
+/* ==========================================================================
+   Auth pages
+   ========================================================================== */
+.login-container { min-height: calc(100vh - 76px); padding: 40px 16px; }
+.auth-card { max-width: 440px; }
+.auth-card .card-body { background: linear-gradient(180deg, var(--navy-800), var(--navy-700)); border-radius: var(--radius-lg); }
+.auth-mark { font-size: 34px; color: var(--brass); }
+.auth-title { font-size: 26px; }
+.auth-form label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-muted); }
+
+/* ==========================================================================
+   Page shell / cards
+   ========================================================================== */
+.page-container { padding-bottom: 40px; }
+.page-title { font-size: 28px; }
+.page-subtitle { font-size: 14px; margin-top: 4px; }
+.back-link { font-size: 13px; color: var(--ink-muted); }
+
+.card {
+  background: linear-gradient(180deg, var(--navy-800), var(--navy-700));
+  box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Stat cards — styled like manifest stamps
+   ========================================================================== */
+.stat-card { border-left: 3px solid var(--brass) !important; }
+.stat-card-value { font-family: var(--font-display); font-size: 30px; }
+
+.bar-chart { position: relative; height: 240px; }
+
+.activity-item { border-bottom: 1px dashed var(--line); }
+.activity-item:last-child { border-bottom: none; }
+.activity-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brass); flex-shrink: 0; }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+.table-dark {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--ink);
+  --bs-table-border-color: var(--line);
+  --bs-table-hover-bg: rgba(147, 165, 184, 0.06);
+  font-size: 14px;
+}
+.table-dark thead th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-muted);
+  border-bottom-width: 1px;
+  border-color: var(--line-strong);
+}
+
+/* ==========================================================================
+   Voyage list — shipping-lane row
+   ========================================================================== */
+.voyage-row { border-bottom: 1px solid var(--line); }
+.voyage-row:last-child { border-bottom: none; }
+.voyage-port { font-weight: 600; }
+
+/* ==========================================================================
+   Capacity bar
+   ========================================================================== */
+.capacity-bar { display: flex; align-items: center; gap: 8px; }
+.capacity-bar .progress { flex: 1; height: 8px; background: rgba(147, 165, 184, 0.15); }
+
+/* ==========================================================================
+   Empty state
+   ========================================================================== */
+.empty-state-glyph { font-size: 34px; color: var(--ink-faint); }
+
+/* ==========================================================================
+   Modal — Bootstrap modal content re-skinned to the chart-room card style
+   ========================================================================== */
+.modal-content {
+  background: linear-gradient(180deg, var(--navy-800), var(--navy-700));
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+}
+.modal-header { border-bottom: 1px solid var(--line); }
+.modal-hint { margin-top: 8px; }
+
+/* ==========================================================================
+   Toasts
+   ========================================================================== */
+.toast-container .toast { box-shadow: var(--shadow-card); }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
