@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ShipShape Backend Test Suite" verbose="2">
+
+    <test name="JWT Security Tests">
+        <classes>
+            <class name="com.example.demo.JwtUtilTest"/>
+            <class name="com.example.demo.SecurityAnnotationTest"/>
+        </classes>
+    </test>
+
+    <test name="Controller Tests">
+        <classes>
+            <class name="com.example.demo.AuthControllerTest"/>
+            <class name="com.example.demo.VesselControllerTest"/>
+            <class name="com.example.demo.CargoControllerTest"/>
+            <class name="com.example.demo.VoyageControllerTest"/>
+        </classes>
+    </test>
+
+    <test name="Exception Handling Tests">
+        <classes>
+            <class name="com.example.demo.ExceptionHandlingTest"/>
+        </classes>
+    </test>
+
+    <test name="Model and DTO Tests">
+        <classes>
+            <class name="com.example.demo.ModelTest"/>
+            <class name="com.example.demo.DtoTest"/>
+        </classes>
+    </test>
+
+</suite>
